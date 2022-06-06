@@ -31,6 +31,7 @@ python3 manage.py runserver
 ```
 ## Примеры запросов:
 Получить список всех публикаций: api/v1/posts/
+Response samples
 ```
 {
   "count": 123,
@@ -41,5 +42,21 @@ python3 manage.py runserver
    ]
 }
 ```
-
+Добавление нового комментария к публикации: api/v1/posts/{post_id}/comments/
+Request samples
+```
+{
+"text": "string"
+}
+```
+Response samples
+```
+{
+  "id": 0,
+  "author": "string",
+  "text": "string",
+  "created": "2019-08-24T14:15:22Z",
+  "post": 0
+}
+```
 
