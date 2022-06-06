@@ -61,3 +61,7 @@ python3 manage.py runserver
   "post": 0
 }
 ```
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1a5c4ff08718793523497c0969e9f2cca9da103c
