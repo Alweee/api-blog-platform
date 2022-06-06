@@ -34,8 +34,8 @@ python3 manage.py runserver
 ## Примеры запросов:
 Получить список всех публикаций: api/v1/posts/
 ```
-{
 Пример ответа:
+{
   "count": 123,
   "next": "http://api.example.org/accounts/?offset=400&limit=100",
   "previous": "http://api.example.org/accounts/?offset=200&limit=100",
@@ -46,15 +46,14 @@ python3 manage.py runserver
 ```
 Добавление нового комментария к публикации: api/v1/posts/{post_id}/comments/
 ```
-{
 Пример запроса:
+{
 "text": "string"
 }
 ```
-Response samples
 ```
-{
 Пример ответа:
+{
   "id": 0,
   "author": "string",
   "text": "string",
