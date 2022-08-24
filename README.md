@@ -1,5 +1,5 @@
-# Yatube_api
-yatube_api это простой api для проекта yatube написанный на python 3.7 c помощью библиотеки Django REST framework.
+# blog-platform_api
+blog-platform-api это простой api для проекта blog-platform написанный на python 3.7 c помощью библиотеки Django REST framework.
 
 ### Список некоторых используемых технологий/пакетов:
 
