@@ -21,7 +21,7 @@ API написан на `ViewSets`.
 
 `git clone https://github.com/Alweee/api-blog-platform.git`
 
-`cd yatube_api` 
+`cd api-blog-platform` 
 
 **Cоздать и активировать виртуальное окружение:**
 
