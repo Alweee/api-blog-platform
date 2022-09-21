@@ -5,90 +5,95 @@ API для всех моделей приложения `Posts`.
 
 Аутентификация по токену. `JWT + Djoser`.
 
-API написан `ViewSets`.
+API написан на `ViewSets`.
 
 ### Cтек технологий:
 [![Python](https://img.shields.io/badge/-Python-464646?style=flat&logo=Python&logoColor=56C0C0&color=008080)](https://www.python.org/)
+[![Django](https://img.shields.io/badge/-Django-464646?style=flat&logo=Django&logoColor=56C0C0&color=008080)](https://www.djangoproject.com/)
 [![Django REST Framework](https://img.shields.io/badge/-Django%20REST%20Framework-464646?style=flat&logo=Django%20REST%20Framework&logoColor=56C0C0&color=008080)](https://www.django-rest-framework.org/)
 [![Python](https://img.shields.io/badge/Simple%20JWT-%20-008080)](https://django-rest-framework-simplejwt.readthedocs.io/en/latest/)
 [![Python](https://img.shields.io/badge/djoser-%20-008080)](https://djoser.readthedocs.io/en/latest/index.html)
+[![](https://img.shields.io/badge/Pillow-%20-008080)](https://pypi.org/project/Pillow/)
+[![](https://img.shields.io/badge/django--filter-%20-008080)](https://django-filter.readthedocs.io/en/stable/guide/usage.html)
 
 ## Как запустить проект:
-Клонировать репозиторий и перейти в него в командной строке:
+**Клонировать репозиторий и перейти в него в командной строке:**
 
-```
-git clone https://github.com/Alweee/api-blog-platform.git
-```
+`git clone https://github.com/Alweee/api-blog-platform.git`
 
-```
-cd api-blog-platform
-```
+`cd yatube_api` 
 
-Cоздать и активировать виртуальное окружение:
+**Cоздать и активировать виртуальное окружение:**
 
-```
-python3 -m venv venv
+`python -m venv venv`
 
-```
+`source venv/bin/activate`
 
-```
-source venv/bin/activate
-```
+**Установить зависимости из файла requirements.txt:**
 
-Установить зависимости из файла requirements.txt:
+`python -m pip install --upgrade pip`
 
-```
+`pip install -r requirements.txt`
 
-python3 -m pip install --upgrade pip
-```
+**Выполнить миграции:**
 
-```
-pip install -r requirements.txt
-```
+`python manage.py migrate`
 
-Выполнить миграции:
+**Запустить проект:**
 
-```
-python3 manage.py migrate
-```
-
-Запустить проект:
-
-```
-python3 manage.py runserver
-```
+`python manage.py runserver`
 
 ## Примеры запросов:
-Получить список всех публикаций: `api/v1/posts/`
+**`GET` | Получить информацию о группе: `/api/v1/groups/2/`**
 
-Ответ:
+Response:
 ```
 {
-    "count": 123,
-    "next": "http://api.example.org/accounts/?offset=400&limit=100",
-    "previous": "http://api.example.org/accounts/?offset=200&limit=100",
-    "results": [
-        {...}
-     ]
-}
+    "id": 2,
+    "title": "Математика",
+    "slug": "math",
+    "description": "Посты на тему математики"
+} 
 ```
 
-Добавление нового комментария к публикации: `api/v1/posts/{post_id}/comments/`
+**`POST` | Добавление нового поста: `/api/v1/posts/`**
 
-Запрос:
+Request:
 ```
 {
-    "text": "string"
-}
+    "text": "Вечером собрались в редакции «Русской мысли», чтобы поговорить о народном театре.",
+    "group": 1
+} 
 ```
 
-Ответ:
+Response:
 ```
 {
-    "id": 0,
-    "author": "string",
-    "text": "string",
-    "created": "2019-08-24T14:15:22Z",
-    "post": 0
+    "id": 14,
+    "text": "Вечером собрались в редакции «Русской мысли», чтобы поговорить о народном театре.",
+    "author": "anton",
+    "image": null,
+    "group": 1,
+    "pub_date": "2021-06-01T08:47:11.084589Z"
+} 
+```
+
+**`POST` | Отправляем новый комментарий к посту с id=14: `/api/v1/posts/14/comments/`**
+
+Request:
+```
+{
+    "text": "тест тест"
+} 
+```
+
+Response:
+```
+{
+    "id": 4,
+    "author": "anton",
+    "post": 14,
+    "text": "тест тест",
+    "created": "2021-06-01T10:14:51.388932Z"
 }
 ```
